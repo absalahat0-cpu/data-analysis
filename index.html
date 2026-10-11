@@ -317,7 +317,7 @@ const yg=R.map(r=>{const p=R.find(q=>q.y==r.y-1&&q.m==r.m);return p?(r.v/p.v-1)*
 $('#ch4').innerHTML=ygv.length?plot([{v:ygv,c:'var(--a)'}],ygl,{bars:1,pct:1,neg:1,step:ygv.length>12?2:1}):`<p class="mu">${E('يلزم 13 شهراً على الأقل لحساب النمو السنوي.','At least 13 months are needed to compute yearly growth.')}</p>`;
 $('#ch5').innerHTML=[0,1,2,3].map(i=>{const f=(T)=>T.sum?T.rs.filter(r=>Math.floor(r.m/3)==i).reduce((x,r)=>x+r.v,0)/T.sum*100:0,pa=f(A),pb=f(B);return `<div style="margin:8px 0"><div class="mu">${E('ربع ','Quarter ')}${i+1}</div>${[[pa,'var(--a)','A'],[pb,'var(--b)','B']].map(z=>`<div class="row" style="margin:2px 0"><span style="width:18px">${z[2]}</span><div style="flex:1;background:var(--bg);border-radius:6px"><div style="width:${z[0]}%;background:${z[1]};height:10px;border-radius:6px"></div></div><b style="width:40px">${z[0].toFixed(0)}%</b></div>`).join('')}</div>`}).join('');
 notice();fc()}
-$('#rt').innerHTML=`1 USD = <b>${S.rate}</b> ${E('دينار','JOD')} 🔒`;const x=parseFloat(e.target.value);if(x>0){S.rate=x;applyCur();render()}};
+$('#rt').innerHTML=`1 USD = <b>${S.rate}</b> ${E('دينار','JOD')} 🔒`;
 $('#cu').onclick=e=>{const b=e.target.closest('button');if(!b)return;S.cur=b.dataset.c;applyCur();render()};
 
 function fc(){const{R,v,L}=calc(),n=v.length;$('#scb').innerHTML=sc.map((s,i)=>`<button class="btn ${i==S.sc?'':'o'}" data-i="${i}">${S.en?s[0]:s[1]}</button>`).join('');
